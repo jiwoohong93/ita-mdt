@@ -58,7 +58,7 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">ITA-MDT: Image-Timestep-Adaptive Masked Diffusion Transformer Framework <br> for Image-Based Virtual Try-On</h1>
-            <div class="is-size-5 publication-authors">
+            <div class="is-size-4 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
                 <a href="https://jiwoohong93.github.io/" target="_blank">Ji Woo Hong</a>,</span>
@@ -78,7 +78,7 @@
                   </span>
                   </div>
 
-                  <div class="is-size-5 publication-authors">
+                  <div class="is-size-4 publication-authors">
                     <span class="author-block">Korea Advanced Institute of Science and Technology (KAIST)<br>CVPR 2025</span>
                     <span class="eql-cntrb"></span>
                   </div>
@@ -175,9 +175,9 @@
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
+      <div class="column is-three-quarter">
+        <h2 class="title is-2">Abstract</h2>
+        <div class="content has-text-justified" style="font-size: 1.2rem" >
           <p>
             This paper introduces <b>ITA-MDT</b>, the <b>Image-Timestep-Adaptive Masked Diffusion Transformer Framework for Image-Based Virtual Try-On (IVTON)</b>, designed to overcome the limitations of previous approaches by leveraging the Masked Diffusion Transformer (MDT) for improved handling of both global garment context and fine-grained details. The IVTON task involves seamlessly superimposing a garment from one image onto a person in another, creating a realistic depiction of the person wearing the specified garment. Unlike conventional diffusion-based virtual try-on models that depend on large pre-trained U-Net architectures, ITA-MDT leverages a lightweight, scalable <font color="#e0754f"><b>transformer-based denoising diffusion model with a mask latent modeling scheme</b></font>, achieving competitive results while reducing computational overhead. A key component of ITA-MDT is the <font color="#497c27"><b>Image-Timestep Adaptive Feature Aggregator (ITAFA)</b></font>, a dynamic feature aggregator that combines all of the features from the image encoder into a unified feature of the same size, guided by diffusion timestep and garment image complexity. This enables adaptive weighting of features, allowing the model to emphasize either global information or fine-grained details based on the requirements of the denoising stage. Additionally, the <font color="#f5a100"><b>Salient Region Extractor (SRE)</b></font> module is presented to identify complex region of the garment to provide high-resolution local information to the denoising model as an additional condition alongside the global information of the full garment image. This targeted conditioning strategy enhances detail preservation of fine details in highly salient garment regions, optimizing computational resources by avoiding unnecessarily processing entire garment image. Comparative evaluations confirms that ITA-MDT improves efficiency while maintaining strong performance, reaching state-of-the-art results in several metrics.
           </p>
@@ -196,16 +196,16 @@
     <div class="container">
       <!-- Centered Title -->
       <div class="has-text-centered">
-        <h2 class="title is-3">Overview</h2>
+        <h2 class="title is-2">Overview</h2>
       </div>
-
+      <br>
       <figure class="image" style="margin: 0 auto; max-width: 1280px;">
         <img src="static/images/overview_mdt-ivton.jpg" alt="Result Image" style="width: 100%; height: auto;">
       </figure>
 
-      <h3 class="subtitle is-5 mt-4">
+      <h3 class="subtitle is-5 mt-4" >
         <p>
-          <strong>Illustration of the ITA-MDT Framework for Image-Based Virtual Try-On (IVTON).</strong> </br>
+          <strong>Overview of the ITA-MDT Framework for Image-Based Virtual Try-On (IVTON).</strong> </br>
           The framework takes multiple reference images encoded into latent space as query, which includes 
           Garment Agnostic Map \( A \), DensePose \( P \), and Garment Agnostic Mask \( M_X \).<br>
           These reference latent images are concatenated to be patch embedded for the masked diffusion process 
@@ -229,23 +229,23 @@
     <div class="container">
       <!-- Centered Title -->
       <div class="has-text-centered">
-        <h2 class="title is-3">ITAFA & SRE</h2>
+        <h2 class="title is-2">ITAFA & SRE</h2>
       </div>
-
+      <br>
       <figure class="image" style="margin: 0 auto; max-width: 1280px;">
         <img src="static/images/itafa_sre.jpg" alt="Result Image" style="width: 100%; height: auto;">
       </figure>
 
       <h3 class="subtitle is-5 mt-4">
-        <p>
-          <strong>Overview of the <font color="#497c27">Image-Timestep Adaptive Feature Aggregator (ITAFA)</font> and the <font color="#f5a100">Salient Region Extractor (SRE)</font>.</strong>
+
+          <strong>Illustration of the <font color="#497c27">Image-Timestep Adaptive Feature Aggregator (ITAFA)</font> and the <font color="#f5a100">Salient Region Extractor (SRE)</font>.</strong>
           <br>
-          <strong>Left:</strong> The ITAFA dynamically aggregates Vision Transformer (ViT) feature embeddings <em>f</em> based on a combination of the Timestep Embedding Projector—which projects the diffusion timestep embedding <em>T</em> to match the feature embedding dimensions—and the Image Complexity Projector, which transforms the image complexity vector <em>[S, V, G]</em> (sparsity, variance, gradient magnitude) into a comparable dimension.
+          <strong><font color="#497c27">Left:</font></strong> The ITAFA dynamically aggregates Vision Transformer (ViT) feature embeddings <em>f</em> based on a combination of the <b>Timestep Embedding Projector</b>, which projects the diffusion timestep embedding <em>T</em> to match the feature embedding dimensions, and the <b>Image Complexity Projector</b>, which transforms the image complexity vector [<em>S, V, G</em>] (sparsity, variance, gradient magnitude) into a comparable dimension.
+
+          The weight vectors are combined and normalized via softmax to form <em>W</em>, which is used to <b>adaptively aggregate the feature embeddings {<em>f<sub>i</sub></em> }<sub>i=0</sub><sup>h</sup> across hidden layers to produce the final output tensor <em>F</em></b>. Garment <em>X</em> and Salient Region <em>X<sub>s</sub></em> are processed separately through ITAFA to generate the Garment Feature <em>F<sub>g</sub></em> and Salient Feature <em>F<sub>s</sub></em>.
           <br>
-          The weight vectors are combined and normalized via softmax to form <em>W</em>, which is used to adaptively aggregate the feature embeddings <em>{f<sub>i</sub>}</em><sub>i=0</sub><sup>h</sup> across hidden layers to produce the final output tensor <em>F</em>. Garment <em>X</em> and Salient Region <em>X<sub>s</sub></em> are processed separately through ITAFA to generate the Garment Feature <em>F<sub>g</sub></em> and Salient Feature <em>F<sub>s</sub></em>.
-          <br>
-          <strong>Right:</strong> The SRE processes the input image <em>X</em> by computing an entropy map <em>X<sub>e</sub></em>, creating a binary High-Entropy Mask <em>X<sub>m</sub></em>, and applying circular region expansion from the entropy centroid to extract the final high-entropy region <em>X<sub>s</sub></em>, ensuring preservation of detail within a consistent aspect ratio.
-        </p>
+          <strong><font color="#f5a100">Right:</font></strong> The SRE processes the input image <em>X</em> by computing an <b>entropy map <em>X<sub>e</sub></em></b>, creating a binary High-Entropy Mask <em>X<sub>m</sub></em> , and applying circular region expansion from the entropy centroid to <b>extract the final high-entropy region <em>X<sub>s</sub></em></b> , ensuring preservation of detail within a consistent aspect ratio.
+
         
       </h3>
     </div>
@@ -272,7 +272,7 @@
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container has-text-centered">
-      <h2 class="title is-3">Qualitative Comparisons</h2>
+      <h2 class="title is-2">Qualitative Comparisons</h2>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item">
           <!-- Your image here -->
