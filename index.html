@@ -24,8 +24,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <title>Academic Project Page</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <title>ITA-MDT</title>
+  <!-- <link rel="icon" type="image/x-icon" href="static/images/favicon.ico"> -->
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
 
@@ -43,6 +43,11 @@
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
 </head>
 <body>
 
@@ -52,21 +57,30 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">ITA-MDT: Image-Timestep-Adaptive Masked Diffusion Transformer Framework for Image-Based Virtual Try-On</h1>
+            <h1 class="title is-1 publication-title">ITA-MDT: Image-Timestep-Adaptive Masked Diffusion Transformer Framework <br> for Image-Based Virtual Try-On</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
+                <a href="https://jiwoohong93.github.io/" target="_blank">Ji Woo Hong</a>,</span>
                 <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
+                  <a href="https://triton99.github.io/" target="_blank">Tri Ton</a>,</span>
                   <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
+                    <a href="https://trungpx.github.io/" target="_blank">Trung X. Pham</a>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://kookie12.github.io/" target="_blank">Gwanhyeong Koo</a>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://dbstjswo505.github.io/" target="_blank">Sunjae Yoon</a>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://sanctusfactory.com/family.php" target="_blank">Chang D. Yoo</a>
                   </span>
                   </div>
 
                   <div class="is-size-5 publication-authors">
-                    <span class="author-block">Institution Name<br>Conferance name and year</span>
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+                    <span class="author-block">Korea Advanced Institute of Science and Technology (KAIST)<br>CVPR 2025</span>
+                    <span class="eql-cntrb"></span>
                   </div>
 
                   <div class="column has-text-centered">
@@ -81,29 +95,7 @@
                         <span>Paper</span>
                       </a>
                     </span>
-
-                    <!-- Supplementary PDF link -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                  <!-- Github link -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
+  
                 <!-- ArXiv abstract Link -->
                 <span class="link-block">
                   <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
@@ -114,6 +106,31 @@
                   <span>arXiv</span>
                 </a>
               </span>
+
+                  <!-- BibTeX link -->
+                  <span class="link-block">
+                    <a href="bibtex_url" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-book"></i>
+                    </span>
+                    <span>BibTeX (TBD)</span>
+                  </a>
+                </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/jiwoohong93/ita-mdt_code" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (TBU)</span>
+                  </a>
+                </span>
+
+                </a>
+              </span>
             </div>
           </div>
         </div>
@@ -122,23 +139,37 @@
   </div>
 </section>
 
-
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/qual_upper.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Qualitative results of our ITA-MDT on DressCode Upper-body.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/qual_lower.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Qualitative results of our ITA-MDT on DressCode Lower-body.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/qual_dresses.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Qualitative results of our ITA-MDT on DressCode Dresses.
+       </h2>
+     </div>
   </div>
+</div>
+</div>
 </section>
-<!-- End teaser video -->
+<!-- End image carousel -->
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
@@ -148,7 +179,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            This paper introduces <b>ITA-MDT</b>, the <b>Image-Timestep-Adaptive Masked Diffusion Transformer Framework for Image-Based Virtual Try-On (IVTON)</b>, designed to overcome the limitations of previous approaches by leveraging the Masked Diffusion Transformer (MDT) for improved handling of both global garment context and fine-grained details. The IVTON task involves seamlessly superimposing a garment from one image onto a person in another, creating a realistic depiction of the person wearing the specified garment. Unlike conventional diffusion-based virtual try-on models that depend on large pre-trained U-Net architectures, ITA-MDT leverages a lightweight, scalable <font color="#e0754f"><b>transformer-based denoising diffusion model with a mask latent modeling scheme</b></font>, achieving competitive results while reducing computational overhead. A key component of ITA-MDT is the <font color="#497c27"><b>Image-Timestep Adaptive Feature Aggregator (ITAFA)</b></font>, a dynamic feature aggregator that combines all of the features from the image encoder into a unified feature of the same size, guided by diffusion timestep and garment image complexity. This enables adaptive weighting of features, allowing the model to emphasize either global information or fine-grained details based on the requirements of the denoising stage. Additionally, the <font color="#f5a100"><b>Salient Region Extractor (SRE)</b></font> module is presented to identify complex region of the garment to provide high-resolution local information to the denoising model as an additional condition alongside the global information of the full garment image. This targeted conditioning strategy enhances detail preservation of fine details in highly salient garment regions, optimizing computational resources by avoiding unnecessarily processing entire garment image. Comparative evaluations confirms that ITA-MDT improves efficiency while maintaining strong performance, reaching state-of-the-art results in several metrics.
           </p>
         </div>
       </div>
@@ -158,109 +189,73 @@
 <!-- End paper abstract -->
 
 
-<!-- Image carousel -->
+
+<!-- Single image with description and fixed width -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
+      <!-- Centered Title -->
+      <div class="has-text-centered">
+        <h2 class="title is-3">Overview</h2>
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
+
+      <figure class="image" style="margin: 0 auto; max-width: 1280px;">
+        <img src="static/images/overview_mdt-ivton.jpg" alt="Result Image" style="width: 100%; height: auto;">
+      </figure>
+
+      <h3 class="subtitle is-5 mt-4">
+        <p>
+          <strong>Illustration of the ITA-MDT Framework for Image-Based Virtual Try-On (IVTON).</strong> </br>
+          The framework takes multiple reference images encoded into latent space as query, which includes 
+          Garment Agnostic Map \( A \), DensePose \( P \), and Garment Agnostic Mask \( M_X \).<br>
+          These reference latent images are concatenated to be patch embedded for the masked diffusion process 
+          within our <font color="#e0754f"><b>MDT-IVTON</b>, which follows the architecture of MDTv2 with integrated cross-attention blocks</font>. <br>
+          The image feature of Garment \( X \) is extracted with the ViT image encoder, DINOv2, 
+          and is <font color="#497c27">adaptively aggregated with our proposed <b>Image-Timestep Adaptive Feature Aggregator (ITAFA)</b></font> 
+          to produce Garment Feature \( F_g \). <br>
+          With our <font color="#f5a100"><b>Salient Region Extractor (SRE)</b>, the Salient Region \( X_s \) is extracted from the Garment \( X \)</font> 
+          and processed through ITAFA separately to produce Salient Feature \( F_s \).
+          The Garment Feature \( F_g \) and Salient Feature \( F_s \) are concatenated to serve as conditions of MDT-IVTON.
+        </p>
+        
+      </h3>
     </div>
   </div>
-</div>
-</div>
 </section>
-<!-- End image carousel -->
 
-
-
-
-<!-- Youtube video -->
+<!-- Single image with description and fixed width -->
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
+      <!-- Centered Title -->
+      <div class="has-text-centered">
+        <h2 class="title is-3">ITAFA & SRE</h2>
       </div>
+
+      <figure class="image" style="margin: 0 auto; max-width: 1280px;">
+        <img src="static/images/itafa_sre.jpg" alt="Result Image" style="width: 100%; height: auto;">
+      </figure>
+
+      <h3 class="subtitle is-5 mt-4">
+        <p>
+          <strong>Overview of the <font color="#497c27">Image-Timestep Adaptive Feature Aggregator (ITAFA)</font> and the <font color="#f5a100">Salient Region Extractor (SRE)</font>.</strong>
+          <br>
+          <strong>Left:</strong> The ITAFA dynamically aggregates Vision Transformer (ViT) feature embeddings <em>f</em> based on a combination of the Timestep Embedding Projector—which projects the diffusion timestep embedding <em>T</em> to match the feature embedding dimensions—and the Image Complexity Projector, which transforms the image complexity vector <em>[S, V, G]</em> (sparsity, variance, gradient magnitude) into a comparable dimension.
+          <br>
+          The weight vectors are combined and normalized via softmax to form <em>W</em>, which is used to adaptively aggregate the feature embeddings <em>{f<sub>i</sub>}</em><sub>i=0</sub><sup>h</sup> across hidden layers to produce the final output tensor <em>F</em>. Garment <em>X</em> and Salient Region <em>X<sub>s</sub></em> are processed separately through ITAFA to generate the Garment Feature <em>F<sub>g</sub></em> and Salient Feature <em>F<sub>s</sub></em>.
+          <br>
+          <strong>Right:</strong> The SRE processes the input image <em>X</em> by computing an entropy map <em>X<sub>e</sub></em>, creating a binary High-Entropy Mask <em>X<sub>m</sub></em>, and applying circular region expansion from the entropy centroid to extract the final high-entropy region <em>X<sub>s</sub></em>, ensuring preservation of detail within a consistent aspect ratio.
+        </p>
+        
+      </h3>
     </div>
   </div>
 </section>
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
 
 
 
 <!-- Paper poster -->
-<section class="hero is-small is-light">
+<!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       <h2 class="title">Poster</h2>
@@ -270,21 +265,86 @@
         
       </div>
     </div>
-  </section>
+  </section> -->
 <!--End paper poster -->
 
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h2 class="title is-3">Qualitative Comparisons</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <!-- Your image here -->
+          <img src="static/images/qual_comp_ours.jpg" alt="MY ALT TEXT"/>
+          <h2 class="subtitle has-text-centered">
+            Qualitative comparison of the effect of each component of the ITA-MDT framework on VITON-HD. HR refers to the use of
+            single High-resolution (448 × 448 × 3) garment image to formulate condition.
+            
+          </h2>
+        </div>
+        <div class="item">
+          <!-- Your image here -->
+          <img src="static/images/qual_comp.jpg" alt="MY ALT TEXT"/>
+          <h2 class="subtitle has-text-centered">
+            Qualitative comparison of ITA-MDT with prior methods on VITON-HD and DressCode Upper-body datasets. The first three rows show VITON-HD results; the next three show DressCode results.
+          </h2>
+        </div>
+       <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/qual_comp_viton1.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Qualitative comparison between our ITA-MDT and previous methods on the VITON-HD.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/qual_comp_viton2.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          More qualitative comparison between our ITA-MDT and previous methods on the VITON-HD.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/qual_comp_upper1.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Qualitative comparison between our ITA-MDT and previous methods on the DressCode Upper-body.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/qual_comp_upper2.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          More qualitative comparison between our ITA-MDT and previous methods on the DressCode Upper-body.
+        </h2>
+      </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
 
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
+
+<!--Citation -->
+  <section class="section" id="Citation">
     <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
+      <h2 class="title">Citation</h2>
+      <pre><code>Citation TBA</code></pre>
     </div>
+</section>
+<!--End Citation -->
+
+<!--Acknowledgements -->
+<section class="section" id="Acknowledgements">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Acknowledgements</h2>
+    <p>This work was supported by Institute for Information & communications Technology Planning & Evaluation (IITP) grant funded by the Korea government(MSIT) (No.RS-2021-II211381, Development of Causal AI through Video Understanding and Reinforcement Learning, and Its Applications to Real Environments) and partly supported by Institute of Information & communications Technology Planning & Evaluation (IITP) grant funded by the Korea government(MSIT) (No.RS-2022-II220184, Development and Study of AI Technologies to Inexpensively Conform to Evolving Policy on Ethics)</p>
+  </div>
 </section>
 <!--End BibTex citation -->
 
 
-  <footer class="footer">
+  <!-- <footer class="footer">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-8">
@@ -300,7 +360,7 @@
       </div>
     </div>
   </div>
-</footer>
+</footer> -->
 
 <!-- Statcounter tracking code -->
   
